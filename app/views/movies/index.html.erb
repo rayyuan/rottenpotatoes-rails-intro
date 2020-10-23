@@ -17,9 +17,17 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th>Movie Title</th>
+      <th class= "<%= @click_col = 'Movie Title' ? 'hilite bg-warning' : 'text-primary' %>">
+          <%= link_to "Movie Title", 
+          movies_path({:click_col => "Movie Title", :ratings => Hash[@ratings_to_show.collect{|item| [item, '1'] }]}), 
+          id: "title_header" %>
+      </th>
       <th>Rating</th>
-      <th>Release Date</th>
+      <th class= "<%= @click_col = 'Release Date' ? 'hilite bg-warning' : 'text-primary' %>">
+          <%= link_to "Release Date", 
+          movies_path({:click_col => "Release Date", :ratings => Hash[@ratings_to_show.collect{|item| [item, '1'] }]}), 
+          id: "release_date_header" %>
+      </th>
       <th>More Info</th>
     </tr>
   </thead>

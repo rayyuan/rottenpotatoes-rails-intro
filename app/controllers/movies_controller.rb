@@ -14,6 +14,13 @@ class MoviesController < ApplicationController
       @ratings_to_show = params[:ratings].keys
       @movies = Movie.with_ratings(@ratings_to_show)
     end 
+    
+    if params[:click_col] == 'Movie Title'
+      @click_col = params[:click_col]
+      @movies = @movies.order(:title)
+    elsif params[:click_col] == 'Release Date'
+      @click_col = params[:click_col]
+      @movies = @movies.order(:release_date)
   end
 
   def new
